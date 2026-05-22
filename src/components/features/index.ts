@@ -2,18 +2,18 @@ import { lazy } from "react";
 
 export const Pages = {
   // Main Pages
-  Homepage: lazy(() => import("./home/Homepage")),
+  HomePage: lazy(() => import("./home/HomePage")),
   RootLayout: lazy(() => import("../layouts/RootLayout")),
   NotFound: lazy(() => import("./home/NotFound")),
   Loading: lazy(() => import("../layouts/Loading")),
 
   // search
-  SearchPage: lazy(() => import("./search/Searchpage")),
+  SearchPage: lazy(() => import("./search/SearchPage")),
   SearchUsingFilter: lazy(() => import("./search/SearchUsingFilter")),
   SearchUsingDebouncing: lazy(() => import("./search/SearchUsingDebouncing")),
 
   // Auth Pages
-  Authpage: lazy(() => import("./auth/Authpage")),
+  AuthPage: lazy(() => import("./auth/AuthPage")),
   Signin: lazy(() => import("./auth").then((module) => ({ default: module.Signin }))),
   Signup: lazy(() => import("./auth").then((module) => ({ default: module.Signup }))),
   ForgetPassword: lazy(() =>

@@ -22,7 +22,9 @@ const CounterAppUsingUseStateHook = () => {
         <div className="center gap-xl p-2">
           <Button onClick={increment}>Add</Button>
           <h3>{count}</h3>
-          <Button onClick={decrement}>Sub</Button>
+          <Button onClick={decrement} disabled={count === 0}>
+            Sub
+          </Button>
         </div>
       </div>
     </div>

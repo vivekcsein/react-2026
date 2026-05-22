@@ -2,11 +2,11 @@ import { useMemo } from "react";
 import Link from "../../ui/Link";
 import { routeConfig } from "../../../packages/configs/config.router";
 
-const Homepage = () => {
+const HomePage = () => {
   // ✅ Filter valid routes only
   const apps = useMemo(() => {
     return routeConfig.filter((route) => {
-      // exclude homepage
+      // exclude HomePage
       if (route.path === "/") return false;
 
       // exclude wildcard / not found
@@ -38,4 +38,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+export default HomePage;

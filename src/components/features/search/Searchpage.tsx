@@ -1,7 +1,7 @@
 import { getRouteByKey } from "../../../packages/configs/config.router";
 import Link from "../../ui/Link";
 
-const Searchpage = () => {
+const SearchPage = () => {
   const currentRoute = getRouteByKey("SEARCH");
 
   return (
@@ -29,4 +29,4 @@ const Searchpage = () => {
   );
 };
 
-export default Searchpage;
+export default SearchPage;

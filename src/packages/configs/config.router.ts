@@ -31,7 +31,7 @@ export const routeConfig = [
     title: "Home",
     description: "Explore different features and mini apps",
     path: "/",
-    element: Pages.Homepage,
+    element: Pages.HomePage,
   },
   {
     // auth system
@@ -39,7 +39,7 @@ export const routeConfig = [
     title: "Auth System",
     description: "Login & Signup forms with validation",
     path: "auth",
-    element: Pages.Authpage,
+    element: Pages.AuthPage,
     children: [
       {
         key: "SIGNUP",

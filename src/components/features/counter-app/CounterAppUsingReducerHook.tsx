@@ -28,7 +28,9 @@ const CounterAppUsingReducerHook = () => {
         <div className="center gap-xl p-2">
           <Button onClick={() => dispatch({ type: "increment" })}>Add</Button>
           <h3>{state.count}</h3>
-          <Button onClick={() => dispatch({ type: "decrement" })}>Sub</Button>
+          <Button onClick={() => dispatch({ type: "decrement" })} disabled={state.count === 0}>
+            Sub
+          </Button>
         </div>
       </div>
     </div>

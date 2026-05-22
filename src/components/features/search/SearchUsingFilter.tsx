@@ -36,7 +36,7 @@ const SearchUsingFilter = () => {
 
         <ol className="search-list">
           {items.map((user) => (
-            <li key={user.id} className="search-item">
+            <li key={user.id} className="search-item cursor-pointer">
               <span className="user-name">{highlight(user.name)}</span>
               <span className="user-email">{highlight(user.email)}</span>
             </li>
