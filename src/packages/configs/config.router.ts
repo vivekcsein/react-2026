@@ -151,6 +151,30 @@ export const routeConfig = [
     ],
   },
   {
+    // navigation
+    key: "NAVIGATION",
+    title: "Navigation",
+    description: "Navigation features",
+    path: "navigation",
+    element: Pages.NavigationPage,
+    children: [
+      {
+        key: "NAVIGATION-MODALS",
+        title: "Navigation Modals",
+        description: "Navigation modals",
+        path: "navigation-modals",
+        element: Pages.NavigationModalPage,
+      },
+      // {
+      //   key: "NAVIGATION-NAVBAR",
+      //   title: "Navbar",
+      //   description: "Responsive Navbar",
+      //   path: "navigation-bar",
+      //   element: Pages.NavigationBar,
+      // },
+    ],
+  },
+  {
     // not found
     key: "NOT-FOUND",
     title: "Not Found",

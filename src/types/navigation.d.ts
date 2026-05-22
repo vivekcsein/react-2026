@@ -33,7 +33,7 @@ export interface FooterConfig {
 
   // Instead of separate arrays, use a unified structure
   sections?: Array<{
-    title: string;                // e.g. "Products", "Company", "Support"
-    links: Array<Navigation>;     // the actual links
+    title: string; // e.g. "Products", "Company", "Support"
+    links: Array<Navigation>; // the actual links
   }>;
 }

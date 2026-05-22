@@ -27,11 +27,12 @@ export const Pages = {
   CounterAppUsingReducerHook: lazy(() => import("./counter-app/CounterAppUsingReducerHook")),
   CounterAppUsingUseStateHook: lazy(() => import("./counter-app/CounterAppUsingUseStateHook")),
 
-  //debounced search
-  //   SearchUsingDebounce: lazy(() => import("./features/debounced-search/SearchUsingDebounce")),
-
   // todo app
   TodoApp: lazy(() => import("./todo-app/TodoApp")),
   TodoAppUsingLocalStorage: lazy(() => import("./todo-app/TodoAppUsingLocalStorage")),
   TodoAppWithoutLocalStorage: lazy(() => import("./todo-app/TodoAppWithoutLocalStorage")),
+
+  // navigation
+  NavigationPage: lazy(() => import("./navigation/NavigationPage")),
+  NavigationModalPage: lazy(() => import("./navigation/modals/ModalPage")),
 };
