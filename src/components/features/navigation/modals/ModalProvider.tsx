@@ -42,6 +42,7 @@ export const ModalProvider = ({ children }: ModalProviderProps) => {
 
 // ─── Hook ─────────────────────────────────────────────────────────────────────
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useModal = (): ModalContextValue => {
   const ctx = useContext(ModalContext);
   if (!ctx) {

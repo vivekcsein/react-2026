@@ -1,9 +1,6 @@
 import { Pages } from "../../components/features";
 
-/* =========================================================
-   TYPES
-   ========================================================= */
-
+// TYPES
 export type RouteConfig = {
   key: string;
   title: string;
@@ -20,10 +17,7 @@ export type AppRoute = Omit<RouteConfig, "children"> & {
   children?: AppRoute[];
 };
 
-/* =========================================================
-   CONFIG (READONLY ✅)
-   ========================================================= */
-
+// CONFIG (READONLY ✅)
 export const routeConfig = [
   {
     // homepage
@@ -159,19 +153,26 @@ export const routeConfig = [
     element: Pages.NavigationPage,
     children: [
       {
+        key: "NAVIGATION-NAVBAR",
+        title: "Navbar",
+        description: "Responsive Navbar",
+        path: "navigation-bar",
+        element: Pages.NavigationNavbarPage,
+      },
+      {
         key: "NAVIGATION-MODALS",
         title: "Navigation Modals",
         description: "Navigation modals",
         path: "navigation-modals",
         element: Pages.NavigationModalPage,
       },
-      // {
-      //   key: "NAVIGATION-NAVBAR",
-      //   title: "Navbar",
-      //   description: "Responsive Navbar",
-      //   path: "navigation-bar",
-      //   element: Pages.NavigationBar,
-      // },
+      {
+        key: "NAVIGATION-SIDEBAR",
+        title: "Sidebar",
+        description: "Responsive Sidebar",
+        path: "navigation-sidebar",
+        element: Pages.NavigationSidebarPage,
+      },
     ],
   },
   {
@@ -184,17 +185,11 @@ export const routeConfig = [
   },
 ] as const satisfies readonly RouteConfig[];
 
-/* =========================================================
-   HELPERS
-   ========================================================= */
-
+// HELPERS
 const joinPath = (parent: string, child: string) =>
   `/${[parent, child].filter(Boolean).join("/")}`.replace(/\/+/g, "/");
 
-/* =========================================================
-   BUILD ROUTES (IMMUTABLE )
-   ========================================================= */
-
+// BUILD ROUTES (IMMUTABLE )
 export const buildRoutes = (routes: readonly RouteConfig[], parentPath = ""): AppRoute[] => {
   return routes.map((route) => {
     const fullPath = route.path === "/" ? "/" : joinPath(parentPath, route.path);
@@ -211,17 +206,11 @@ export const buildRoutes = (routes: readonly RouteConfig[], parentPath = ""): Ap
   });
 };
 
-/* =========================================================
-   FLATTEN ROUTES
-   ========================================================= */
-
+// FLATTEN ROUTES
 export const flattenRoutes = (routes: AppRoute[]): AppRoute[] =>
   routes.flatMap((route) => [route, ...(route.children ? flattenRoutes(route.children) : [])]);
 
-/* =========================================================
-   FINAL EXPORTS
-   ========================================================= */
-
+// FINAL EXPORTS
 export const appRoutes = buildRoutes(routeConfig);
 export const flatRoutes = flattenRoutes(appRoutes);
 

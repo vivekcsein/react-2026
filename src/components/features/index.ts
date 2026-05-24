@@ -34,5 +34,7 @@ export const Pages = {
 
   // navigation
   NavigationPage: lazy(() => import("./navigation/NavigationPage")),
+  NavigationNavbarPage: lazy(() => import("./navigation/navbar/NavbarPage")),
   NavigationModalPage: lazy(() => import("./navigation/modals/ModalPage")),
+  NavigationSidebarPage: lazy(() => import("./navigation/sidebar/SidebarPage")),
 };

@@ -1,5 +1,5 @@
 import React, { type ReactNode } from "react";
-
+import ErrorPage from "../features/home/ErrorPage";
 type ErrorBoundaryState = {
   hasError: boolean;
   error: unknown;
@@ -40,16 +40,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
 
   render() {
     if (this.state.hasError) {
-      return (
-        <div>
-          <h2>Something went wrong 😢</h2>
-
-          {/* Safe error display */}
-          {this.state.error instanceof Error && <p>{this.state.error.message}</p>}
-
-          <button onClick={this.handleReset}>Try Again</button>
-        </div>
-      );
+      return <ErrorPage error={this.state.error} />;
     }
 
     return this.props.children;

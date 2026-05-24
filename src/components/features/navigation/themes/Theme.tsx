@@ -1,5 +1,6 @@
-import Button from "../ui/Button";
-import { useTheme } from "../../packages/hooks/useTheme";
+import Button from "../../../ui/Button";
+import { useTheme } from "./ThemeProvider";
+// import { useTheme } from "../../packages/hooks/useTheme";
 
 const ThemeToggle = () => {
   const { theme, toggleTheme } = useTheme();

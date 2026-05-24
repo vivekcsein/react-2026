@@ -1,6 +1,6 @@
-import Theme from "./Theme";
 import Link from "../ui/Link";
 import { Outlet } from "react-router-dom";
+import Theme from "../features/navigation/themes/Theme";
 import BreadCrumbs from "../features/bread-crumbs/BreadCrumbs";
 
 const RootLayout = () => {
