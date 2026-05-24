@@ -1,3 +1,5 @@
+// import type { ImageProps } from "../../types/app";
+
 import type {
   FooterConfig,
   HeaderConfig,
@@ -6,6 +8,19 @@ import type {
   NavigationItem,
   NavbarConfig,
 } from "../../types/navigation";
+
+const logoConfig: string = "VivekCSE";
+// const logoConfig: ImageProps = {
+//   id: "main-navigation-logo",
+//   src: "/main-navigation-logo.png",
+//   alt: "main-navigation-logo",
+//   href: "/",
+//   width: 100,
+//   height: 100,
+//   color: "#ffffff",
+//   className: "main-navigation-logo",
+//   loading: "lazy",
+// };
 
 // Navigation Items
 export const navigationItems: NavigationItem[] = [
@@ -119,17 +134,7 @@ export const headerConfig: HeaderConfig = {
   mobileBreakpoint: 1024,
   showMobileMenu: true,
   showDesktopMenu: true,
-  logo: {
-    id: "main-navigation-logo",
-    src: "/main-navigation-logo.png",
-    alt: "main-navigation-logo",
-    href: "/",
-    width: 100,
-    height: 100,
-    color: "#ffffff",
-    className: "main-navigation-logo",
-    loading: "lazy",
-  },
+  logo: logoConfig,
   navbar: navbarConfig,
 };
 

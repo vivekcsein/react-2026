@@ -82,7 +82,7 @@ export interface NavigationAction extends NavigationNode, AccessControl {
 
 // Navbar
 export interface NavbarConfig {
-  logo?: ReactNode;
+  logo?: ImageProps | string;
   navigation: NavigationItem[];
   actions?: NavigationAction[];
   activeItemId?: string;

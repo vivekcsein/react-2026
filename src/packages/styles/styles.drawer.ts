@@ -1,0 +1,53 @@
+import type { CSSProperties } from "react";
+import type { DrawerPlacement } from "../../types/navigation";
+
+export const navbarDrawerKeyframes = `
+@keyframes navbar-drawer-backdrop {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes navbar-drawer-left {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes navbar-drawer-right {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+`;
+
+export const getDrawerStyles = (placement: DrawerPlacement): CSSProperties => {
+  return {
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    [placement]: 0,
+    width: "80vw",
+    maxWidth: 320,
+    display: "flex",
+    flexDirection: "column",
+    background: "hsl(var(--background))",
+    borderRight: placement === "left" ? "1px solid hsl(var(--border))" : undefined,
+    borderLeft: placement === "right" ? "1px solid hsl(var(--border))" : undefined,
+
+    animation:
+      placement === "left" ? "navbar-drawer-left 0.2s ease" : "navbar-drawer-right 0.2s ease",
+  };
+};
