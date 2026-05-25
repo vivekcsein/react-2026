@@ -1,8 +1,8 @@
 "use client";
 
-import { type CSSProperties, type ReactNode, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { useModal } from "../ModalProvider";
+import { type CSSProperties, type ReactNode, useEffect } from "react";
+import { useNavigationFeature } from "../../NavigationProvider";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -34,7 +34,7 @@ export default function FullscreenModal({
   children,
   closeOnEscape = true,
 }: FullscreenModalProps) {
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, close } = useNavigationFeature();
   const open = isOpen(modalId);
 
   // Lock body scroll while open
@@ -51,11 +51,11 @@ export default function FullscreenModal({
   useEffect(() => {
     if (!open || !closeOnEscape) return;
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") closeModal();
+      if (e.key === "Escape") close(modalId);
     };
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [open, closeOnEscape, closeModal]);
+  }, [open, closeOnEscape, close, modalId]);
 
   if (!open) return null;
 

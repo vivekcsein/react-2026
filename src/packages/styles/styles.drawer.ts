@@ -1,8 +1,8 @@
 import type { CSSProperties } from "react";
 import type { DrawerPlacement } from "../../types/navigation";
 
-export const navbarDrawerKeyframes = `
-@keyframes navbar-drawer-backdrop {
+export const drawerKeyframes = `
+@keyframes drawer-backdrop {
   from {
     opacity: 0;
   }
@@ -12,7 +12,7 @@ export const navbarDrawerKeyframes = `
   }
 }
 
-@keyframes navbar-drawer-left {
+@keyframes drawer-left {
   from {
     transform: translateX(-100%);
   }
@@ -22,7 +22,7 @@ export const navbarDrawerKeyframes = `
   }
 }
 
-@keyframes navbar-drawer-right {
+@keyframes drawer-right {
   from {
     transform: translateX(100%);
   }
@@ -48,6 +48,6 @@ export const getDrawerStyles = (placement: DrawerPlacement): CSSProperties => {
     borderLeft: placement === "right" ? "1px solid hsl(var(--border))" : undefined,
 
     animation:
-      placement === "left" ? "navbar-drawer-left 0.2s ease" : "navbar-drawer-right 0.2s ease",
+      placement === "left" ? "drawer-left 0.2s ease" : "drawer-right 0.2s ease",
   };
 };

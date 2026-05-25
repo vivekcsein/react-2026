@@ -11,7 +11,7 @@ import type {
   NavigationItem,
 } from "../../../../../types/navigation";
 
-type NavbarDrawerContentProps = {
+type NavbarMobileContentProps = {
   navbar: NavbarConfig;
   navigation: NavigationItem[];
   actions?: NavigationAction[];
@@ -22,7 +22,7 @@ type NavbarDrawerContentProps = {
   placement: DrawerPlacement;
 };
 
-const NavbarDrawerContent = ({
+const NavbarMobileContent = ({
   navbar,
   navigation,
   actions,
@@ -31,7 +31,7 @@ const NavbarDrawerContent = ({
   onClose,
   toggle,
   placement,
-}: NavbarDrawerContentProps) => {
+}: NavbarMobileContentProps) => {
   return (
     <>
       {/* Navbar Mobile Menu */}
@@ -110,4 +110,4 @@ const NavbarDrawerContent = ({
   );
 };
 
-export default NavbarDrawerContent;
+export default NavbarMobileContent;

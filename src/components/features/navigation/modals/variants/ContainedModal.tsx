@@ -1,8 +1,8 @@
 "use client";
 
-import { type CSSProperties, type ReactNode, type RefObject, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { useModal } from "../ModalProvider";
+import { type CSSProperties, type ReactNode, type RefObject, useEffect, useState } from "react";
+import { useNavigationFeature } from "../../NavigationProvider";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -30,7 +30,7 @@ export const ContainedModal = ({
   containerRef,
   closeOnOverlay = true,
 }: ContainedModalProps) => {
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, close } = useNavigationFeature();
   const open = isOpen(modalId);
 
   const [portalTarget, setPortalTarget] = useState<HTMLElement | null>(null);
@@ -48,7 +48,7 @@ export const ContainedModal = ({
       {/* Scoped backdrop — does NOT cover the rest of the app */}
       <div
         style={styles.overlay}
-        onClick={closeOnOverlay ? closeModal : undefined}
+        onClick={closeOnOverlay ? () => close(modalId) : undefined}
         aria-hidden="true"
       />
 

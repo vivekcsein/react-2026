@@ -1,9 +1,6 @@
 // Helper functions to safely access localStorage (only in browser)
 
-export function getLocalStorageItem<T>(key: string): T | null;
-export function getLocalStorageItem<T>(key: string, fallback: T): T;
-
-export function getLocalStorageItem<T>(key: string, fallback?: T) {
+export const getLocalStorageItem = <T>(key: string, fallback?: T) => {
   if (typeof window === "undefined" || !window.localStorage) {
     return fallback ?? null;
   }
@@ -45,3 +42,37 @@ export const putLocalStorageItem = (key: string, value: unknown) => {
     window.localStorage.setItem(key, JSON.stringify(arr));
   }
 };
+
+export const getLocalStorageSet = (key: string): Set<string> => {
+  if (typeof window ==="undefined" || !window.localStorage) {
+    return new Set();
+  }
+
+  try {
+    const storedValue =
+      localStorage.getItem(key);
+
+    if (!storedValue) {
+      return new Set();
+    }
+
+    const parsed =
+      JSON.parse(storedValue);
+
+    return Array.isArray(parsed)
+      ? new Set(parsed)
+      : new Set();
+  } catch {
+    localStorage.removeItem(key);
+
+    return new Set();
+  }
+}
+
+export const setLocalStorageSet = (key: string, value: Set<string>) => {
+  if (typeof window === "undefined" || !window.localStorage) {
+    return;
+  }
+
+  localStorage.setItem(key, JSON.stringify([...value]));
+}

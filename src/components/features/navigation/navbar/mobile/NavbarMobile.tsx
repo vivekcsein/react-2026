@@ -1,10 +1,10 @@
 import NavbarToggle from "../common/NavbarToggle";
-import { useNavbar } from "../NavbarProvider";
-import { DrawerLayout } from "./NavbarDrawerLayout";
 import { useTheme } from "../../themes/ThemeProvider";
-import NavbarDrawerContent from "./NavbarDrawerContent";
+import NavbarMobileContent from "./NavbarMobileContent";
+import { useNavigationFeature } from "../../NavigationProvider";
 import NavigationLogo from "../../../../ui/images/NavigationLogo";
 import type { ResolvedThemeMode } from "../../../../../types/app";
+import { DrawerLayout } from "../../../../ui/drawer/DrawerLayout";
 import type { DrawerPlacement, HeaderConfig } from "../../../../../types/navigation";
 import { filterNavigationActions, filterNavigationItems } from "../common/NavbarCommon";
 import { mobileNavbarStyles } from "../../../../../packages/styles/navbar/navbar.mobile";
@@ -25,7 +25,7 @@ const NavbarMobile = ({
 }: NavbarMobileProps) => {
   const { resolvedTheme } = useTheme();
 
-  const { isOpen, toggle, close } = useNavbar();
+  const { isOpen, close, toggle } = useNavigationFeature();
 
   const open = isOpen(navbarId);
 
@@ -59,13 +59,13 @@ const NavbarMobile = ({
       </nav>
 
       <DrawerLayout open={open} placement={placement} onClose={() => close(navbarId)}>
-        <NavbarDrawerContent
+        <NavbarMobileContent
           navbar={navbar}
           navigation={navigation}
           actions={actions}
           onClose={() => close(navbarId)}
           open={open}
-          toggle={toggle}
+          toggle={() => toggle(navbarId as string)}
           navbarId={navbarId}
           placement={placement}
         />

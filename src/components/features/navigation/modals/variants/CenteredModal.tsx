@@ -1,8 +1,8 @@
 "use client";
 
-import { type CSSProperties, type ReactNode, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { useModal } from "../ModalProvider";
+import { type CSSProperties, type ReactNode, useEffect } from "react";
+import { useNavigationFeature } from "../../NavigationProvider";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -34,7 +34,7 @@ export default function CenteredModal({
   closeOnOverlay = true,
   maxWidth = "32rem",
 }: CenteredModalProps) {
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, close } = useNavigationFeature();
   const open = isOpen(modalId);
 
   // Lock body scroll while open
@@ -54,7 +54,7 @@ export default function CenteredModal({
       {/* Backdrop */}
       <div
         style={styles.overlay}
-        onClick={closeOnOverlay ? closeModal : undefined}
+        onClick={closeOnOverlay ? () => close(modalId) : undefined}
         aria-hidden="true"
       />
 

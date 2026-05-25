@@ -3,10 +3,10 @@
 import { useRef, type CSSProperties } from "react";
 
 import Button from "../../../ui/Button";
-import { useModal } from "./ModalProvider";
 import CenteredModal from "./variants/CenteredModal";
 import ContainedModal from "./variants/ContainedModal";
 import FullscreenModal from "./variants/FullscreenModal";
+import { useNavigationFeature } from "../NavigationProvider";
 
 //  Modal Example
 export const ModalPage = () => {
@@ -47,7 +47,7 @@ type ModalContentProps = {
   message: string;
   actions: string[];
 
-  onClose: () => void;
+  onClose: (id: string) => void;
 };
 
 const ModalContent = ({ title, message, actions, onClose }: ModalContentProps) => {
@@ -59,7 +59,7 @@ const ModalContent = ({ title, message, actions, onClose }: ModalContentProps) =
 
       <div style={styles.modalFooter}>
         {actions.map((action) => (
-          <Button key={action} onClick={onClose}>
+          <Button key={action} onClick={() => onClose(action)}>
             {action}
           </Button>
         ))}
@@ -71,18 +71,18 @@ const ModalContent = ({ title, message, actions, onClose }: ModalContentProps) =
 //  Centered Example
 
 const CenteredExample = () => {
-  const { openModal, closeModal } = useModal();
+  const { open, close } = useNavigationFeature();
 
   return (
     <>
-      <Button onClick={() => openModal("centered-demo")}>Open centered modal</Button>
+      <Button onClick={() => open("centered-demo")}>Open centered modal</Button>
 
       <CenteredModal modalId="centered-demo" maxWidth="28rem">
         <ModalContent
           title="Confirm action"
           message="This is a standard centered dialog. The rest of the app is locked while it is open."
           actions={["Cancel", "Confirm"]}
-          onClose={closeModal}
+          onClose={() => close("centered-demo")}
         />
       </CenteredModal>
     </>
@@ -91,18 +91,18 @@ const CenteredExample = () => {
 
 //  Fullscreen Example
 const FullscreenExample = () => {
-  const { openModal, closeModal } = useModal();
+  const { open, close } = useNavigationFeature();
 
   return (
     <>
-      <Button onClick={() => openModal("fullscreen-demo")}>Open fullscreen modal</Button>
+      <Button onClick={() => open("fullscreen-demo")}>Open fullscreen modal</Button>
 
       <FullscreenModal modalId="fullscreen-demo">
         <div style={styles.fullscreenRoot}>
           <header style={styles.fullscreenHeader}>
             <span style={styles.fullscreenLogo}>⬛ Editor</span>
 
-            <Button onClick={closeModal}>✕ Close</Button>
+            <Button onClick={() => close("fullscreen-demo")}>✕ Close</Button>
           </header>
 
           <main style={styles.fullscreenMain}>
@@ -118,7 +118,7 @@ const FullscreenExample = () => {
 
 //  Contained Example
 const ContainedExample = () => {
-  const { openModal, closeModal } = useModal();
+  const { open, close } = useNavigationFeature();
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -128,7 +128,7 @@ const ContainedExample = () => {
         <div style={styles.dashboardPanelHeader}>
           <span>Data panel</span>
 
-          <Button onClick={() => openModal("contained-demo")}>Open settings</Button>
+          <Button onClick={() => open("contained-demo")}>Open settings</Button>
         </div>
 
         <p style={styles.dashboardBody}>
@@ -141,7 +141,7 @@ const ContainedExample = () => {
             title="Panel settings"
             message="This modal is scoped entirely inside the data panel above."
             actions={["Dismiss", "Apply"]}
-            onClose={closeModal}
+            onClose={() => close("contained-demo")}
           />
         </ContainedModal>
       </div>

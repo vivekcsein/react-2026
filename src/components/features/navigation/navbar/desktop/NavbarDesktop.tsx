@@ -3,17 +3,17 @@ import { NavbarItem } from "../common/NavbarItem";
 import { NavbarAction } from "../common/NavbarAction";
 import { useTheme } from "../../themes/ThemeProvider";
 import type { ThemeMode } from "../../../../../types/app";
+import NavigationLogo from "../../../../ui/images/NavigationLogo";
 import type { NavbarConfig } from "../../../../../types/navigation";
 import { navbarStyles } from "../../../../../packages/styles/navbar/navbar.desktop";
 import { filterNavigationActions, filterNavigationItems } from "../common/NavbarCommon";
-import NavigationLogo from "../../../../ui/images/NavigationLogo";
 
 type NavbarDesktopProps = {
   navbar: NavbarConfig;
   isAuthorized?: boolean;
 };
 
-export const NavbarDesktop = ({ navbar, isAuthorized }: NavbarDesktopProps) => {
+const NavbarDesktop = ({ navbar, isAuthorized }: NavbarDesktopProps) => {
   const { theme } = useTheme() as {
     theme: Exclude<ThemeMode, "system">;
   };
@@ -61,3 +61,5 @@ export const NavbarDesktop = ({ navbar, isAuthorized }: NavbarDesktopProps) => {
     </nav>
   );
 };
+
+export default NavbarDesktop;

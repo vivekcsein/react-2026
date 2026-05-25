@@ -1,12 +1,8 @@
 "use client";
 
 import { createPortal } from "react-dom";
-import type { DrawerPlacement } from "../../../../../types/navigation";
-
-import {
-  navbarDrawerKeyframes,
-  getDrawerStyles,
-} from "../../../../../packages/styles/styles.drawer";
+import type { DrawerPlacement } from "../../../types/navigation";
+import { drawerKeyframes, getDrawerStyles } from "../../../packages/styles/styles.drawer";
 
 // Types
 type DrawerLayoutProps = {
@@ -55,7 +51,7 @@ export const DrawerLayout = ({
 
             backdropFilter: "blur(4px)",
 
-            animation: "navbar-drawer-backdrop 0.2s ease",
+            animation: "drawer-backdrop 0.2s ease",
           }}
         />
 
@@ -71,7 +67,7 @@ export const DrawerLayout = ({
         </div>
       </div>
 
-      <style>{navbarDrawerKeyframes}</style>
+      <style>{drawerKeyframes}</style>
     </>,
     document.body,
   );
