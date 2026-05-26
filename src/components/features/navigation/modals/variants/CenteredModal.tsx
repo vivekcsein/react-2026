@@ -3,6 +3,7 @@
 import { createPortal } from "react-dom";
 import { type CSSProperties, type ReactNode, useEffect } from "react";
 import { useNavigationFeature } from "../../NavigationProvider";
+import { useDrawerEscape } from "../../../../../packages/hooks/useDrawer";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -36,6 +37,8 @@ export default function CenteredModal({
 }: CenteredModalProps) {
   const { isOpen, close } = useNavigationFeature();
   const open = isOpen(modalId);
+  
+  useDrawerEscape(() => close(modalId), open);
 
   // Lock body scroll while open
   useEffect(() => {

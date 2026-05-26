@@ -1,12 +1,8 @@
-import type { ImageProps, ThemeMode } from "./app";
 import type { CSSProperties, ReactNode } from "react";
 import type { UserRole } from "../../../../packages/configs/config.roles";
+import type { ImageProps, ThemeMode, IconProps, Variants, RefinedPosition } from "../app.d";
 
-// Shared Types
-export type ComponentVariant = "primary" | "secondary" | "ghost" | "outline" | "danger" | "success";
-
-export type DrawerPlacement = "top" | "left" | "right";
-
+// shared types
 export type PermissionKey = string;
 
 export type RoutePath = string;
@@ -14,18 +10,6 @@ export type RoutePath = string;
 export type AccessRole = UserRole;
 
 export type AuthVisibility = "always" | "authorizedOnly" | "unauthorizedOnly";
-
-// Shared UI
-export interface IconProps {
-  node?: ReactNode | string;
-  hidden?: boolean;
-  color?: string;
-  size?: number;
-  only?: boolean;
-  position?: "left" | "right";
-  spacing?: number;
-}
-
 export interface BadgeProps {
   value: string | number;
   variant?: "default" | "primary" | "success" | "warning" | "danger";
@@ -73,7 +57,7 @@ export interface NavigationItem extends NavigationNode, AccessControl {
 export interface NavigationAction extends NavigationNode, AccessControl {
   href?: RoutePath;
   icon?: IconProps;
-  variant?: ComponentVariant;
+  variant?: Variants;
   external?: boolean;
   disabled?: boolean;
   loading?: boolean;
@@ -95,7 +79,7 @@ export interface HeaderConfig extends LayoutProps {
   id: string;
   logo?: ImageProps | string;
   navbar: NavbarConfig;
-  mobileDrawerPlacement?: DrawerPlacement;
+  mobileRefinedPosition?: RefinedPosition;
   mobileBreakpoint?: number;
   showMobileMenu?: boolean;
   showDesktopMenu?: boolean;
@@ -128,7 +112,7 @@ export interface FooterConfig extends LayoutProps {
 // Mobile Navbar
 export interface MobileNavigationState {
   isOpen: boolean;
-  placement: DrawerPlacement;
+  placement: RefinedPosition;
   activeItemId?: string;
 }
 

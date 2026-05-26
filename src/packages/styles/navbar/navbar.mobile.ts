@@ -1,10 +1,10 @@
 import type { CSSProperties } from "react";
 import { navbarStyles } from "./navbar.desktop";
-import type { DrawerPlacement } from "../../../types/navigation";
+import type { Position, RefinedXPosition } from "../../../types/app";
 
 export const mobileNavbarStyles = navbarStyles;
 
-export const overflowAnimations: Record<DrawerPlacement, string> = {
+export const overflowAnimations: Record<Exclude<Position, "bottom">, string> = {
   top: "navbar-overflow-top 0.18s ease",
 
   left: "navbar-overflow-left 0.18s ease",
@@ -12,7 +12,7 @@ export const overflowAnimations: Record<DrawerPlacement, string> = {
   right: "navbar-overflow-right 0.18s ease",
 };
 
-export function getOverflowPanelStyle(placement: DrawerPlacement): CSSProperties {
+export function getOverflowPanelStyle(placement: RefinedXPosition): CSSProperties {
   const base: CSSProperties = {
     position: "absolute",
     top: "calc(100% + 8px)",

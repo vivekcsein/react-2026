@@ -10,6 +10,17 @@ export interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   className?: string; // optional className override
   loading?: "lazy" | "eager"; // optional loading strategy
 }
+
+// Icon metadata for navigation items, buttons, etc.
+export interface IconProps {
+  node?: ReactNode | string;
+  hidden?: boolean;
+  color?: string;
+  size?: number;
+  only?: boolean;
+  position?: "left" | "right";
+  spacing?: number;
+}
 export type InputType =
   | "text"
   | "textarea"
@@ -32,3 +43,13 @@ export type InputType =
 export type ThemeMode = "light" | "dark" | "system";
 
 export type ResolvedThemeMode = Exclude<ThemeMode, "system">;
+
+export type Variants = "primary" | "secondary" | "ghost" | "outline" | "danger" | "success";
+
+export type Position = "top" | "left" | "right" | "bottom";
+
+export type RefinedXPosition = Exclude<Position, "top" | "bottom">;
+
+export type RefinedYPosition = Exclude<Position, "left" | "right">;
+
+export type Axis = "horizontal" | "vertical";

@@ -130,7 +130,7 @@ export const headerConfig: HeaderConfig = {
   id: "main-header",
   theme: "dark",
   sticky: true,
-  mobileDrawerPlacement: "right",
+  mobileRefinedPosition: "right",
   mobileBreakpoint: 1024,
   showMobileMenu: true,
   showDesktopMenu: true,

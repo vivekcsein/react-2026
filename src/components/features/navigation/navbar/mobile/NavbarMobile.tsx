@@ -3,9 +3,9 @@ import { useTheme } from "../../themes/ThemeProvider";
 import NavbarMobileContent from "./NavbarMobileContent";
 import { useNavigationFeature } from "../../NavigationProvider";
 import NavigationLogo from "../../../../ui/images/NavigationLogo";
-import type { ResolvedThemeMode } from "../../../../../types/app";
 import { DrawerLayout } from "../../../../ui/drawer/DrawerLayout";
-import type { DrawerPlacement, HeaderConfig } from "../../../../../types/navigation";
+import type { HeaderConfig } from "../../../../../types/navigation";
+import type { RefinedXPosition, ResolvedThemeMode } from "../../../../../types/app";
 import { filterNavigationActions, filterNavigationItems } from "../common/NavbarCommon";
 import { mobileNavbarStyles } from "../../../../../packages/styles/navbar/navbar.mobile";
 import { useBodyScrollLock, useDrawerEscape } from "../../../../../packages/hooks/useDrawer";
@@ -14,14 +14,14 @@ type NavbarMobileProps = {
   navbarId?: string;
   navbar: HeaderConfig["navbar"];
   isAuthorized?: boolean;
-  placement?: DrawerPlacement;
+  position?: RefinedXPosition;
 };
 
 const NavbarMobile = ({
   navbarId = "mobile-navbar",
   navbar,
   isAuthorized,
-  placement = "left",
+  position = "left",
 }: NavbarMobileProps) => {
   const { resolvedTheme } = useTheme();
 
@@ -47,7 +47,7 @@ const NavbarMobile = ({
             ...styles.container,
 
             justifyContent: "space-between",
-            flexDirection: placement === "left" ? "row" : "row-reverse",
+            flexDirection: position === "left" ? "row" : "row-reverse",
           }}
         >
           {navbarId && <NavbarToggle open={open} onClick={() => toggle(navbarId as string)} />}
@@ -58,7 +58,7 @@ const NavbarMobile = ({
         </div>
       </nav>
 
-      <DrawerLayout open={open} placement={placement} onClose={() => close(navbarId)}>
+      <DrawerLayout open={open} position={position} onClose={() => close(navbarId)}>
         <NavbarMobileContent
           navbar={navbar}
           navigation={navigation}
@@ -67,7 +67,7 @@ const NavbarMobile = ({
           open={open}
           toggle={() => toggle(navbarId as string)}
           navbarId={navbarId}
-          placement={placement}
+          position={position}
         />
       </DrawerLayout>
     </>

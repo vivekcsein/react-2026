@@ -17,7 +17,7 @@ const NavbarPage = () => {
           navbar={headerConfig.navbar}
           isAuthorized={true}
           navbarId="main-navbar-mobile-left"
-          placement="left"
+          position="left"
         />
       </div>
       <div className="mb-4">
@@ -26,7 +26,7 @@ const NavbarPage = () => {
           navbar={headerConfig.navbar}
           isAuthorized={true}
           navbarId="main-navbar-mobile-right"
-          placement="right"
+          position="right"
         />
       </div>
     </section>

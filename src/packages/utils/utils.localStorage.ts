@@ -13,7 +13,7 @@ export const getLocalStorageItem = <T>(key: string, fallback?: T) => {
   } catch {
     return fallback ?? null;
   }
-}
+};
 
 export const setLocalStorageItem = (key: string, value: unknown) => {
   if (typeof window !== "undefined" && window.localStorage) {
@@ -44,30 +44,26 @@ export const putLocalStorageItem = (key: string, value: unknown) => {
 };
 
 export const getLocalStorageSet = (key: string): Set<string> => {
-  if (typeof window ==="undefined" || !window.localStorage) {
+  if (typeof window === "undefined" || !window.localStorage) {
     return new Set();
   }
 
   try {
-    const storedValue =
-      localStorage.getItem(key);
+    const storedValue = localStorage.getItem(key);
 
     if (!storedValue) {
       return new Set();
     }
 
-    const parsed =
-      JSON.parse(storedValue);
+    const parsed = JSON.parse(storedValue);
 
-    return Array.isArray(parsed)
-      ? new Set(parsed)
-      : new Set();
+    return Array.isArray(parsed) ? new Set(parsed) : new Set();
   } catch {
     localStorage.removeItem(key);
 
     return new Set();
   }
-}
+};
 
 export const setLocalStorageSet = (key: string, value: Set<string>) => {
   if (typeof window === "undefined" || !window.localStorage) {
@@ -75,4 +71,4 @@ export const setLocalStorageSet = (key: string, value: Set<string>) => {
   }
 
   localStorage.setItem(key, JSON.stringify([...value]));
-}
+};

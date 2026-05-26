@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import type { DrawerPlacement } from "../../types/navigation";
+import type { RefinedXPosition } from "../../types/app";
 
 export const drawerKeyframes = `
 @keyframes drawer-backdrop {
@@ -33,7 +33,7 @@ export const drawerKeyframes = `
 }
 `;
 
-export const getDrawerStyles = (placement: DrawerPlacement): CSSProperties => {
+export const getDrawerStyles = (placement: RefinedXPosition): CSSProperties => {
   return {
     position: "absolute",
     top: 0,
@@ -47,7 +47,6 @@ export const getDrawerStyles = (placement: DrawerPlacement): CSSProperties => {
     borderRight: placement === "left" ? "1px solid hsl(var(--border))" : undefined,
     borderLeft: placement === "right" ? "1px solid hsl(var(--border))" : undefined,
 
-    animation:
-      placement === "left" ? "drawer-left 0.2s ease" : "drawer-right 0.2s ease",
+    animation: placement === "left" ? "drawer-left 0.2s ease" : "drawer-right 0.2s ease",
   };
 };

@@ -1,13 +1,13 @@
 "use client";
 
 import { createPortal } from "react-dom";
-import type { DrawerPlacement } from "../../../types/navigation";
+import type { RefinedXPosition } from "../../../types/app";
 import { drawerKeyframes, getDrawerStyles } from "../../../packages/styles/styles.drawer";
 
 // Types
 type DrawerLayoutProps = {
   open: boolean;
-  placement?: DrawerPlacement;
+  position?: RefinedXPosition;
   width?: number | string;
   zIndex?: number;
   children: React.ReactNode;
@@ -17,7 +17,7 @@ type DrawerLayoutProps = {
 // Component
 export const DrawerLayout = ({
   open,
-  placement = "left",
+  position = "left",
   width = "80vw",
   zIndex = 9999,
   children,
@@ -58,7 +58,7 @@ export const DrawerLayout = ({
         {/* Drawer */}
         <div
           style={{
-            ...getDrawerStyles(placement),
+            ...getDrawerStyles(position),
 
             width,
           }}

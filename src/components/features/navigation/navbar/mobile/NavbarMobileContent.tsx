@@ -2,10 +2,10 @@ import { NavbarItem } from "../common/NavbarItem";
 import NavbarToggle from "../common/NavbarToggle";
 import { NavbarAction } from "../common/NavbarAction";
 import NavigationLogo from "../../../../ui/images/NavigationLogo";
+import type { RefinedXPosition } from "../../../../../types/app";
 import { mobileNavbarStyles } from "../../../../../packages/styles/navbar/navbar.mobile";
 
 import type {
-  DrawerPlacement,
   NavbarConfig,
   NavigationAction,
   NavigationItem,
@@ -19,7 +19,7 @@ type NavbarMobileContentProps = {
   open: boolean;
   onClose: () => void;
   toggle: (navbarId: string) => void;
-  placement: DrawerPlacement;
+  position: RefinedXPosition;
 };
 
 const NavbarMobileContent = ({
@@ -30,7 +30,7 @@ const NavbarMobileContent = ({
   open,
   onClose,
   toggle,
-  placement,
+  position,
 }: NavbarMobileContentProps) => {
   return (
     <>
@@ -45,7 +45,7 @@ const NavbarMobileContent = ({
           boxShadow: "0 2px 10px hsl(var(--foreground) / 0.05)",
           borderBottom: "1px solid hsl(var(--border))",
           backdropFilter: "blur(12px)",
-          flexDirection: placement === "left" ? "row" : "row-reverse",
+          flexDirection: position === "left" ? "row" : "row-reverse",
         }}
       >
         {navbarId && <NavbarToggle open={open} onClick={() => toggle(navbarId as string)} />}
