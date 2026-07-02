@@ -1,18 +1,24 @@
+import type z from "zod";
 import type { InputType } from "../../types/app";
 
-/* =========================================================
-   TYPES
-   ========================================================= */
+import {
+  signinSchema,
+  signupSchema,
+  forgetPasswordSchema,
+  resetPasswordSchema,
+  updateProfileSchema,
+} from "../schemas/auth.schema";
 
+//   TYPES
 export interface FormInputType {
   key: string;
   id: string;
   label: string;
   type: InputType;
-  placeholder: string;
-  options?: { label: string; value: string }[];
   required: boolean;
-  errorMessage: string;
+  placeholder: string;
+  errorMessage?: string;
+  options?: { label: string; value: string }[];
 }
 
 export interface ReferToType {
@@ -35,15 +41,12 @@ export interface FormListType {
   formInputs: FormInputType[];
 }
 
-/* =========================================================
-   CONFIG (OBJECT MAP ✅)
-   ========================================================= */
-
+// CONFIG (OBJECT MAP ✅)
 export const authFormConfig: Record<string, FormListType> = {
   SIGNIN: {
     key: "SIGNIN",
     title: "Sign In",
-    description: "Login to your account",
+    description: "Sign in to your account",
     icon: "User",
     submit: {
       label: "Sign In",
@@ -59,8 +62,8 @@ export const authFormConfig: Record<string, FormListType> = {
         id: "email",
         label: "Email",
         type: "email",
-        placeholder: "Enter your email",
         required: true,
+        placeholder: "Enter your email",
         errorMessage: "Email is required",
       },
       {
@@ -68,17 +71,17 @@ export const authFormConfig: Record<string, FormListType> = {
         id: "password",
         label: "Password",
         type: "password",
-        placeholder: "Enter your password",
         required: true,
+        placeholder: "Enter your password",
         errorMessage: "Password is required",
       },
       {
         key: "SIGNIN-REMEMBER",
-        id: "remember",
+        id: "rememberme",
         label: "Remember me",
         type: "checkbox",
-        placeholder: "",
         required: false,
+        placeholder: "",
         errorMessage: "",
       },
     ],
@@ -99,21 +102,21 @@ export const authFormConfig: Record<string, FormListType> = {
     },
     formInputs: [
       {
-        key: "SIGNUP-NAME",
-        id: "name",
+        key: "SIGNUP-FULLNAME",
+        id: "fullname",
         label: "Full Name",
         type: "text",
-        placeholder: "Enter your name",
         required: true,
-        errorMessage: "Name is required",
+        placeholder: "Enter your fullname",
+        errorMessage: "Full name is required",
       },
       {
         key: "SIGNUP-EMAIL",
         id: "email",
         label: "Email",
         type: "email",
-        placeholder: "Enter your email",
         required: true,
+        placeholder: "Enter your email",
         errorMessage: "Email is required",
       },
       {
@@ -121,8 +124,8 @@ export const authFormConfig: Record<string, FormListType> = {
         id: "password",
         label: "Password",
         type: "password",
-        placeholder: "Create a password",
         required: true,
+        placeholder: "Create a password",
         errorMessage: "Password is required",
       },
       {
@@ -130,9 +133,18 @@ export const authFormConfig: Record<string, FormListType> = {
         id: "confirmPassword",
         label: "Confirm Password",
         type: "password",
-        placeholder: "Confirm your password",
         required: true,
+        placeholder: "Confirm your password",
         errorMessage: "Please confirm your password",
+      },
+      {
+        key: "SIGNUP-AGREE-TERMS",
+        id: "agreeToTerms",
+        label: "I agree to the terms and conditions",
+        type: "checkbox",
+        required: true,
+        placeholder: "",
+        errorMessage: "",
       },
     ],
   },
@@ -156,8 +168,8 @@ export const authFormConfig: Record<string, FormListType> = {
         id: "email",
         label: "Email",
         type: "email",
-        placeholder: "Enter your email",
         required: true,
+        placeholder: "Enter your email",
         errorMessage: "Email is required",
       },
     ],
@@ -182,17 +194,17 @@ export const authFormConfig: Record<string, FormListType> = {
         id: "password",
         label: "New Password",
         type: "password",
-        placeholder: "Enter new password",
         required: true,
+        placeholder: "Enter new password",
         errorMessage: "Password is required",
       },
       {
-        key: "RESET-CONFIRM",
+        key: "RESET-CONFIRM-PASSWORD",
         id: "confirmPassword",
         label: "Confirm Password",
         type: "password",
-        placeholder: "Confirm new password",
         required: true,
+        placeholder: "Confirm new password",
         errorMessage: "Please confirm password",
       },
     ],
@@ -213,12 +225,12 @@ export const authFormConfig: Record<string, FormListType> = {
     },
     formInputs: [
       {
-        key: "UPDATE-NAME",
-        id: "name",
+        key: "UPDATE-FULLNAME",
+        id: "fullname",
         label: "Full Name",
         type: "text",
-        placeholder: "Enter your name",
         required: true,
+        placeholder: "Enter your fullname",
         errorMessage: "Name is required",
       },
       {
@@ -226,8 +238,8 @@ export const authFormConfig: Record<string, FormListType> = {
         id: "email",
         label: "Email",
         type: "email",
-        placeholder: "Enter your email",
         required: true,
+        placeholder: "Enter your email",
         errorMessage: "Email is required",
       },
       {
@@ -235,16 +247,27 @@ export const authFormConfig: Record<string, FormListType> = {
         id: "phone",
         label: "Phone Number",
         type: "text",
-        placeholder: "Enter phone number",
         required: false,
+        placeholder: "Enter phone number",
         errorMessage: "",
       },
     ],
   },
 };
 
-/* =========================================================
-   TYPESAFE KEY
-   ========================================================= */
-
+//  TYPESAFE KEY
 export type AuthFormKey = keyof typeof authFormConfig;
+
+export const authSchemaMap = {
+  SIGNIN: signinSchema,
+  SIGNUP: signupSchema,
+  FORGOT_PASSWORD: forgetPasswordSchema,
+  RESET_PASSWORD: resetPasswordSchema,
+  UPDATE_PROFILE: updateProfileSchema,
+} as const;
+
+export type AuthSchemaMap = typeof authSchemaMap;
+
+export type AuthSchemaKey = keyof AuthSchemaMap;
+
+export type AuthSchemaType<K extends AuthSchemaKey> = z.infer<AuthSchemaMap[K]>;

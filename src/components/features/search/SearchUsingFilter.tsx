@@ -1,7 +1,7 @@
-import Button from "../../ui/Button";
-import Input from "../../ui/input/Input";
+import Button from "../../ui/buttons/Button";
+import Input from "../../ui/inputs/Input";
 import { useSearch } from "../../../packages/hooks/useSearch";
-import { usersLink } from "../../../packages/configs/config.app";
+import { usersLink } from "../../../packages/configs/app.config";
 import { useHighlight } from "../../../packages/hooks/useHighlight";
 
 interface User {

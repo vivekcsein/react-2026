@@ -1,5 +1,5 @@
-import Link from "../../ui/Link";
-import { getRouteByKey } from "../../../packages/configs/config.router";
+import Link from "../../ui/links/Link";
+import { getRouteByKey } from "../../../packages/configs/router.config";
 
 const CounterApp = () => {
   const currentRoute = getRouteByKey("COUNTER-APP");

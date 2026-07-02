@@ -1,6 +1,6 @@
-import type { ImageProps } from "../../../types/app";
-import Link from "../Link";
+import Link from "../links/Link";
 import ImageComponent from "./ImageComponent";
+import type { ImageProps } from "../../../types/app";
 
 interface NavigationImageProps {
   image: ImageProps | string;

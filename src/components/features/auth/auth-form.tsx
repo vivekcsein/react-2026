@@ -1,7 +1,7 @@
-import Link from "../../ui/Link";
-import { InputFactory } from "../../ui/input/InputFactory";
-import { authFormConfig } from "../../../packages/forms/form.auth";
-import type { FormListType, FormInputType, AuthFormKey } from "../../../packages/forms/form.auth";
+import Link from "../../ui/links/Link";
+import InputFactory from "../../ui/inputs/InputFactory";
+import { authFormConfig } from "../../../packages/forms/auth.form";
+import type { FormListType, FormInputType, AuthFormKey } from "../../../packages/forms/auth.form";
 
 interface FormLayoutProps {
   form: FormListType;
@@ -77,7 +77,7 @@ interface AuthFormProps {
   formKey: AuthFormKey;
 }
 
-export const AuthForm = ({ formKey }: AuthFormProps) => {
+const AuthForm = ({ formKey }: AuthFormProps) => {
   const form = authFormConfig[formKey];
 
   return (
@@ -91,3 +91,5 @@ export const AuthForm = ({ formKey }: AuthFormProps) => {
     </form>
   );
 };
+
+export default AuthForm;

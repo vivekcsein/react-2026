@@ -5,7 +5,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import useHttp from "../hooks/useHttp";
-import { getLocalStorageItem, setLocalStorageItem } from "../utils/utils.localStorage";
+import { getLocalStorageItem, setLocalStorageItem } from "../utils/local-storage.utils";
 
 interface UseSearchProps<T> {
   key: string;

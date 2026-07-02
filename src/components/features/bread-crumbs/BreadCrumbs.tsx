@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import Link from "../../ui/Link";
+import Link from "../../ui/links/Link";
 import useBreadCrumbs from "../../../packages/hooks/useBreadCrumbs";
 
 const BreadCrumbs = () => {

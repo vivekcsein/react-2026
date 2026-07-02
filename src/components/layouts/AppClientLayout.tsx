@@ -1,9 +1,9 @@
-import Link from "../ui/Link";
+import Link from "../ui/links/Link";
 import { Outlet } from "react-router-dom";
 import Theme from "../features/navigation/themes/Theme";
 import BreadCrumbs from "../features/bread-crumbs/BreadCrumbs";
 
-const RootLayout = () => {
+const AppClientLayout = () => {
   return (
     <div className="layout">
       {/* Header */}
@@ -40,4 +40,4 @@ const RootLayout = () => {
   );
 };
 
-export default RootLayout;
+export default AppClientLayout;

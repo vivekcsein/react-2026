@@ -1,5 +1,5 @@
-import { getRouteByKey } from "../../../packages/configs/config.router";
-import Link from "../../ui/Link";
+import { getRouteByKey } from "../../../packages/configs/router.config";
+import Link from "../../ui/links/Link";
 
 const SearchPage = () => {
   const currentRoute = getRouteByKey("SEARCH");

@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import Button from "../../ui/Button";
+import Button from "../../ui/buttons/Button";
 
 // Reducer function
 const CounterReducer = (state: { count: number }, action: { type: "increment" | "decrement" }) => {

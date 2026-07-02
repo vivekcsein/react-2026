@@ -2,7 +2,7 @@
 
 import { useRef, type CSSProperties } from "react";
 
-import Button from "../../../ui/Button";
+import Button from "../../../ui/buttons/Button";
 import CenteredModal from "./variants/CenteredModal";
 import ContainedModal from "./variants/ContainedModal";
 import FullscreenModal from "./variants/FullscreenModal";

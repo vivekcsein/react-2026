@@ -37,7 +37,7 @@ export default function CenteredModal({
 }: CenteredModalProps) {
   const { isOpen, close } = useNavigationFeature();
   const open = isOpen(modalId);
-  
+
   useDrawerEscape(() => close(modalId), open);
 
   // Lock body scroll while open

@@ -3,8 +3,8 @@ import { useRoutes } from "react-router-dom";
 
 import Loading from "./Loading";
 import ErrorBoundary from "./ErrorBoundary";
-import RootLayout from "../layouts/RootLayout";
-import { flatRoutes } from "../../packages/configs/config.router";
+import RootLayout from "./AppClientLayout";
+import { flatRoutes } from "../../packages/configs/router.config";
 
 const withWrapper = (Component: React.ComponentType) => (
   <ErrorBoundary>

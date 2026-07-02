@@ -1,5 +1,5 @@
 import { lazy } from "react";
-import { headerConfig } from "../../../../packages/configs/config.navigation";
+import { headerConfig } from "../../../../packages/configs/navigation.config";
 
 const NavbarDesktop = lazy(() => import("./desktop/NavbarDesktop"));
 const NavbarMobile = lazy(() => import("./mobile/NavbarMobile"));

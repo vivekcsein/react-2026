@@ -1,4 +1,4 @@
-import Button from "../../../ui/Button";
+import Button from "../../../ui/buttons/Button";
 import { useTheme } from "./ThemeProvider";
 // import { useTheme } from "../../packages/hooks/useTheme";
 

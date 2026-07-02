@@ -1,6 +1,6 @@
 "use client";
-import Link from "../../../../ui/Link";
-import Button from "../../../../ui/Button";
+import Link from "../../../../ui/links/Link";
+import Button from "../../../../ui/buttons/Button";
 import { NavigationIcon } from "./NavbarCommon";
 import type { NavigationAction } from "../../../../../types/navigation";
 

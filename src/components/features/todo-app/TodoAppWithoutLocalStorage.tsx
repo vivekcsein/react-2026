@@ -1,6 +1,6 @@
 import { useRef, useState, useCallback } from "react";
-import Button from "../../ui/Button";
-import Input from "../../ui/input/Input";
+import Button from "../../ui/buttons/Button";
+import Input from "../../ui/inputs/Input";
 
 interface todoType {
   id: number;

@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import Link from "../../ui/Link";
-import { routeConfig } from "../../../packages/configs/config.router";
+import Link from "../../ui/links/Link";
+import { routeConfig } from "../../../packages/configs/router.config";
 
 const HomePage = () => {
   // ✅ Filter valid routes only

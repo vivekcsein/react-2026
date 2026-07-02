@@ -1,4 +1,5 @@
-import { AuthForm } from "./auth-form";
+// import AuthForm from "./auth-form";
+import AuthForm from "./AuthForm";
 
 export const Signin = () => {
   return <AuthForm formKey="SIGNIN" />;

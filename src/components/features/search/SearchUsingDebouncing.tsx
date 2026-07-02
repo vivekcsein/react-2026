@@ -1,8 +1,8 @@
-import Input from "../../ui/input/Input";
+import Input from "../../ui/inputs/Input";
 import { useState, useEffect } from "react";
 import useHttp from "../../../packages/hooks/useHttp";
 import useDebounce from "../../../packages/hooks/useDebounce";
-import { usersLink } from "../../../packages/configs/config.app";
+import { usersLink } from "../../../packages/configs/app.config";
 
 interface UserData {
   name: string;

@@ -2,9 +2,9 @@ import { useCallback, useRef, useState } from "react";
 import {
   getLocalStorageItem,
   setLocalStorageItem,
-} from "../../../packages/utils/utils.localStorage";
-import Input from "../../ui/input/Input";
-import Button from "../../ui/Button";
+} from "../../../packages/utils/local-storage.utils";
+import Input from "../../ui/inputs/Input";
+import Button from "../../ui/buttons/Button";
 
 interface TodoType {
   id: number;

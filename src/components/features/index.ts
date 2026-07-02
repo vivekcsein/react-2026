@@ -3,7 +3,7 @@ import { lazy } from "react";
 export const Pages = {
   // Main Pages
   HomePage: lazy(() => import("./home/HomePage")),
-  RootLayout: lazy(() => import("../layouts/RootLayout")),
+  AppClientLayout: lazy(() => import("../layouts/AppClientLayout")),
   NotFound: lazy(() => import("./home/NotFound")),
   Loading: lazy(() => import("../layouts/Loading")),
 

@@ -1,7 +1,8 @@
 {
   "name": "react-2026",
+  "description": "Learn React in 2026 by vivekcse",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,10 +12,14 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.4.0",
     "lucide-react": "^1.16.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
-    "react-router-dom": "^7.14.2"
+    "react-hook-form": "^7.80.0",
+    "react-router-dom": "^7.14.2",
+    "sonner": "^2.0.7",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",

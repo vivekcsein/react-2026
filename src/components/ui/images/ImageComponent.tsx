@@ -1,5 +1,5 @@
 import type { ImageProps } from "../../../types/app";
-import Link from "../Link";
+import Link from "../links/Link";
 
 const ImageComponent = ({
   id,

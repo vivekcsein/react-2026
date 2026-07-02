@@ -11,7 +11,10 @@ import {
   type ReactNode,
 } from "react";
 
-import { getLocalStorageSet, setLocalStorageSet } from "../../../packages/utils/utils.localStorage";
+import {
+  getLocalStorageSet,
+  setLocalStorageSet,
+} from "../../../packages/utils/local-storage.utils";
 
 // Types
 type NavigationContextValue = {

@@ -1,7 +1,7 @@
-import Link from "../../ui/Link";
-import { getRouteByKey } from "../../../packages/configs/config.router";
+import Link from "../../ui/links/Link";
+import { getRouteByKey } from "../../../packages/configs/router.config";
 
-const Authpage = () => {
+const AuthPage = () => {
   const currentRoute = getRouteByKey("AUTH");
 
   return (
@@ -29,4 +29,4 @@ const Authpage = () => {
   );
 };
 
-export default Authpage;
+export default AuthPage;
