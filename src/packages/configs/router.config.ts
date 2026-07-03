@@ -176,6 +176,44 @@ export const routeConfig = [
     ],
   },
   {
+    // docs
+    key: "DOCS",
+    title: "Docs",
+    description: "Documentation",
+    path: "docs",
+    element: Pages.DocsPage,
+    children: [
+      {
+        key: "DOCS-GETTING-STARTED",
+        title: "Getting Started",
+        description: "Start Here to understand more about docs",
+        path: "getting-started",
+        element: Pages.DocsGettingStarted,
+      },
+      {
+        key: "DOCS-TOP-1-REACT-HOOKS",
+        title: "Top 1% React Hooks",
+        description: "Learn React hooks easily with the docs",
+        path: "react-hooks",
+        element: Pages.DocsReactHooks,
+      },
+      {
+        key: "DOCS-TOP-1-ERROR-GUIDE",
+        title: "Top 1% Error Guide",
+        description: "Learning based Error guide to debug problems",
+        path: "error-guide",
+        element: Pages.DocsErrorGuide,
+      },
+      {
+        key: "DOCS-TOP-1-LOGICAL-JS-INTERVIEW",
+        title: "Top 1% Logical JavaScript Interview",
+        description: "Interview based logical question cheat sheat",
+        path: "logical-js-interview",
+        element: Pages.DocsLogicalQuestionInJs,
+      },
+    ],
+  },
+  {
     // not found
     key: "NOT-FOUND",
     title: "Not Found",

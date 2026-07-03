@@ -37,4 +37,19 @@ export const Pages = {
   NavigationNavbarPage: lazy(() => import("./navigation/navbar/NavbarPage")),
   NavigationModalPage: lazy(() => import("./navigation/modals/ModalPage")),
   NavigationSidebarPage: lazy(() => import("./navigation/sidebar/SidebarPage")),
+
+  // docs
+  DocsPage: lazy(() => import("./docs-app/DocsPage")),
+  DocsGettingStarted: lazy(() =>
+    import("./docs-app").then((module) => ({ default: module.DocsGettingStarted })),
+  ),
+  DocsReactHooks: lazy(() =>
+    import("./docs-app").then((module) => ({ default: module.DocsReactHooks })),
+  ),
+  DocsLogicalQuestionInJs: lazy(() =>
+    import("./docs-app").then((module) => ({ default: module.DocsLogicalQuestionInJs })),
+  ),
+  DocsErrorGuide: lazy(() =>
+    import("./docs-app").then((module) => ({ default: module.DocsErrorGuide })),
+  ),
 };

@@ -27,25 +27,25 @@ A hook is a special function React gives you that lets you "hook into" React's i
 
 ## Table of Contents
 
-| # | Hook | Difficulty | What it does |
-|---|------|-----------|--------------|
-| 1 | `useState` | ⭐ Beginner | Remember data between renders |
-| 2 | `useEffect` | ⭐ Beginner | Run code after rendering |
-| 3 | `useRef` | ⭐ Beginner | Access DOM + persistent values |
-| 4 | `useContext` | ⭐ Beginner | Share data without prop drilling |
-| 5 | `useReducer` | ⭐⭐ Intermediate | Complex state logic |
-| 6 | `useMemo` | ⭐⭐ Intermediate | Cache expensive calculations |
-| 7 | `useCallback` | ⭐⭐ Intermediate | Cache function references |
-| 8 | `useId` | ⭐ Beginner | Generate unique IDs safely |
-| 9 | `useLayoutEffect` | ⭐⭐ Intermediate | DOM measurements before paint |
-| 10 | `useTransition` | ⭐⭐ Intermediate | Keep UI responsive during updates |
-| 11 | `useDeferredValue` | ⭐⭐ Intermediate | Delay expensive renders |
-| 12 | `useImperativeHandle` | ⭐⭐⭐ Advanced | Control child component from parent |
-| 13 | `useActionState` | ⭐⭐ Intermediate | React 19 — Form actions with state |
-| 14 | `useOptimistic` | ⭐⭐ Intermediate | React 19 — Instant UI feedback |
-| 15 | `use()` | ⭐⭐ Intermediate | React 19 — Read Promises + Context |
-| 16 | `useFormStatus` | ⭐ Beginner | React 19 — Form submission state |
-| 17 | Custom Hooks | ⭐⭐ Intermediate | Build your own reusable hooks |
+| #   | Hook                  | Difficulty        | What it does                        |
+| --- | --------------------- | ----------------- | ----------------------------------- |
+| 1   | `useState`            | ⭐ Beginner       | Remember data between renders       |
+| 2   | `useEffect`           | ⭐ Beginner       | Run code after rendering            |
+| 3   | `useRef`              | ⭐ Beginner       | Access DOM + persistent values      |
+| 4   | `useContext`          | ⭐ Beginner       | Share data without prop drilling    |
+| 5   | `useReducer`          | ⭐⭐ Intermediate | Complex state logic                 |
+| 6   | `useMemo`             | ⭐⭐ Intermediate | Cache expensive calculations        |
+| 7   | `useCallback`         | ⭐⭐ Intermediate | Cache function references           |
+| 8   | `useId`               | ⭐ Beginner       | Generate unique IDs safely          |
+| 9   | `useLayoutEffect`     | ⭐⭐ Intermediate | DOM measurements before paint       |
+| 10  | `useTransition`       | ⭐⭐ Intermediate | Keep UI responsive during updates   |
+| 11  | `useDeferredValue`    | ⭐⭐ Intermediate | Delay expensive renders             |
+| 12  | `useImperativeHandle` | ⭐⭐⭐ Advanced   | Control child component from parent |
+| 13  | `useActionState`      | ⭐⭐ Intermediate | React 19 — Form actions with state  |
+| 14  | `useOptimistic`       | ⭐⭐ Intermediate | React 19 — Instant UI feedback      |
+| 15  | `use()`               | ⭐⭐ Intermediate | React 19 — Read Promises + Context  |
+| 16  | `useFormStatus`       | ⭐ Beginner       | React 19 — Form submission state    |
+| 17  | Custom Hooks          | ⭐⭐ Intermediate | Build your own reusable hooks       |
 
 ---
 
@@ -53,7 +53,7 @@ A hook is a special function React gives you that lets you "hook into" React's i
 
 **Think of it as:** A variable that makes React re-draw your component when its value changes.
 
-Without `useState`, variables in components reset to their initial value every time React re-renders. `useState` gives you a value that *survives* re-renders.
+Without `useState`, variables in components reset to their initial value every time React re-renders. `useState` gives you a value that _survives_ re-renders.
 
 ### The Basics
 
@@ -206,7 +206,7 @@ export default StateUpdateExamples
 
 **Think of it as:** "After React draws the screen, run this code."
 
-`useEffect` is for anything that talks to the outside world — APIs, subscriptions, timers, browser APIs, localStorage. It runs *after* the component renders, not during.
+`useEffect` is for anything that talks to the outside world — APIs, subscriptions, timers, browser APIs, localStorage. It runs _after_ the component renders, not during.
 
 ### Understanding the Dependency Array
 
@@ -407,6 +407,7 @@ export default TimerAndSubscription
 **Think of it as:** A box that holds a value that won't trigger a re-render when it changes. Also used to point directly at a DOM element.
 
 `useRef` has two main jobs:
+
 1. **Hold a reference to a DOM element** (so you can call `.focus()`, `.scrollTo()`, etc.)
 2. **Store a value that persists across renders without causing re-renders**
 
@@ -536,7 +537,7 @@ export default StopWatch
 
 **Think of it as:** A way to share data with many components at once without passing props through every layer.
 
-Without context, you'd have to pass a prop through every component between the one that *has* the data and the one that *needs* it — called "prop drilling." Context skips all the layers in between.
+Without context, you'd have to pass a prop through every component between the one that _has_ the data and the one that _needs_ it — called "prop drilling." Context skips all the layers in between.
 
 ### Step 1: Create the Context
 
@@ -967,7 +968,7 @@ export default ProductList
 
 ## Hook 7 — `useCallback`
 
-**Think of it as:** Like `useMemo` but for *functions* instead of values. It gives you a stable function reference that doesn't change on every render.
+**Think of it as:** Like `useMemo` but for _functions_ instead of values. It gives you a stable function reference that doesn't change on every render.
 
 **Why does this matter?** If you pass a function as a prop to a child component, that function is recreated on every render. This defeats the purpose of memoizing the child with `React.memo`.
 
@@ -1229,7 +1230,7 @@ export default SearchWithTransition
 
 ## Hook 11 — `useDeferredValue`
 
-**Think of it as:** Similar to `useTransition`, but you wrap the *value* instead of the *setter call*. Use it when you don't control where the state is set (like when data comes from a parent).
+**Think of it as:** Similar to `useTransition`, but you wrap the _value_ instead of the _setter call_. Use it when you don't control where the state is set (like when data comes from a parent).
 
 ```typescript
 'use client'
@@ -1368,7 +1369,7 @@ export default FormWithCustomInput
 
 ---
 
-## Hook 13 — `useActionState` *(React 19)*
+## Hook 13 — `useActionState` _(React 19)_
 
 **Think of it as:** The cleanest way to handle form submissions in React 19. It tracks pending state, errors, and the result of a form action — all with minimal boilerplate.
 
@@ -1472,7 +1473,7 @@ export default ContactForm
 
 ---
 
-## Hook 14 — `useOptimistic` *(React 19)*
+## Hook 14 — `useOptimistic` _(React 19)_
 
 **Think of it as:** Show the user a "pretend" updated state immediately, then sync with the real server response when it arrives. Makes your app feel instant.
 
@@ -1560,7 +1561,7 @@ export default OptimisticTodoList
 
 ---
 
-## Hook 15 — `use()` *(React 19)*
+## Hook 15 — `use()` _(React 19)_
 
 **Think of it as:** A hook that can read a Promise directly in a component (works with Suspense) or read a Context value. Unlike `useContext`, it CAN be called conditionally.
 
@@ -1636,9 +1637,9 @@ export default AsyncPage
 
 ---
 
-## Hook 16 — `useFormStatus` *(React 19)*
+## Hook 16 — `useFormStatus` _(React 19)_
 
-**Think of it as:** A hook that tells you about the parent form's submission state — great for building submit buttons and loading states that are *inside* a form.
+**Think of it as:** A hook that tells you about the parent form's submission state — great for building submit buttons and loading states that are _inside_ a form.
 
 ```typescript
 'use client'
@@ -1725,6 +1726,7 @@ export default LoginForm
 **Think of it as:** Pulling out hook logic that you repeat across multiple components into a single reusable function.
 
 Custom hooks are just functions that:
+
 - Start with `use`
 - Call other hooks inside them
 - Return whatever the consuming component needs
@@ -1733,43 +1735,43 @@ Custom hooks are just functions that:
 
 ```typescript
 // src/packages/hooks/useLocalStorage.ts
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
 
 // T is a generic — this hook works with ANY type of data
 const useLocalStorage = <T>(key: string, initialValue: T) => {
   const [storedValue, setStoredValue] = useState<T>(() => {
     // This function runs only once on mount — reads from localStorage
-    if (typeof window === 'undefined') {
+    if (typeof window === "undefined") {
       // On the server (Next.js SSR), localStorage doesn't exist
-      return initialValue
+      return initialValue;
     }
 
     try {
-      const item = window.localStorage.getItem(key)
+      const item = window.localStorage.getItem(key);
       // If key exists, parse it; otherwise use initial value
-      return item ? (JSON.parse(item) as T) : initialValue
+      return item ? (JSON.parse(item) as T) : initialValue;
     } catch (error) {
-      console.error(`Error reading localStorage key "${key}":`, error)
-      return initialValue
+      console.error(`Error reading localStorage key "${key}":`, error);
+      return initialValue;
     }
-  })
+  });
 
   // Whenever storedValue changes, sync it back to localStorage
   useEffect(() => {
-    if (typeof window === 'undefined') return
+    if (typeof window === "undefined") return;
 
     try {
-      window.localStorage.setItem(key, JSON.stringify(storedValue))
+      window.localStorage.setItem(key, JSON.stringify(storedValue));
     } catch (error) {
-      console.error(`Error writing localStorage key "${key}":`, error)
+      console.error(`Error writing localStorage key "${key}":`, error);
     }
-  }, [key, storedValue])
+  }, [key, storedValue]);
 
   // Return the same interface as useState — feels familiar to use
-  return [storedValue, setStoredValue] as const
-}
+  return [storedValue, setStoredValue] as const;
+};
 
-export default useLocalStorage
+export default useLocalStorage;
 ```
 
 ```typescript
@@ -1802,64 +1804,64 @@ export default Settings
 
 ```typescript
 // src/packages/hooks/useFetch.ts
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback } from "react";
 
 type FetchState<T> = {
-  data: T | null
-  isLoading: boolean
-  error: string | null
-}
+  data: T | null;
+  isLoading: boolean;
+  error: string | null;
+};
 
 type UseFetchReturn<T> = FetchState<T> & {
-  refetch: () => void // let the component manually trigger a refetch
-}
+  refetch: () => void; // let the component manually trigger a refetch
+};
 
 const useFetch = <T>(url: string): UseFetchReturn<T> => {
   const [state, setState] = useState<FetchState<T>>({
     data: null,
     isLoading: true,
     error: null,
-  })
+  });
 
   const fetchData = useCallback(async () => {
-    setState(prev => ({ ...prev, isLoading: true, error: null }))
+    setState((prev) => ({ ...prev, isLoading: true, error: null }));
 
-    const controller = new AbortController()
+    const controller = new AbortController();
 
     try {
-      const response = await fetch(url, { signal: controller.signal })
+      const response = await fetch(url, { signal: controller.signal });
 
-      if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+      if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
 
-      const data: T = await response.json()
-      setState({ data, isLoading: false, error: null })
+      const data: T = await response.json();
+      setState({ data, isLoading: false, error: null });
     } catch (err) {
-      if (err instanceof Error && err.name === 'AbortError') return
+      if (err instanceof Error && err.name === "AbortError") return;
       setState({
         data: null,
         isLoading: false,
-        error: err instanceof Error ? err.message : 'Unknown error',
-      })
+        error: err instanceof Error ? err.message : "Unknown error",
+      });
     }
 
     // Return cleanup function
-    return () => controller.abort()
-  }, [url])
+    return () => controller.abort();
+  }, [url]);
 
   useEffect(() => {
-    let cleanup: (() => void) | undefined
+    let cleanup: (() => void) | undefined;
 
-    fetchData().then(cleanupFn => {
-      cleanup = cleanupFn
-    })
+    fetchData().then((cleanupFn) => {
+      cleanup = cleanupFn;
+    });
 
-    return () => cleanup?.()
-  }, [fetchData])
+    return () => cleanup?.();
+  }, [fetchData]);
 
-  return { ...state, refetch: fetchData }
-}
+  return { ...state, refetch: fetchData };
+};
 
-export default useFetch
+export default useFetch;
 ```
 
 ```typescript
@@ -1898,26 +1900,26 @@ export default BlogPosts
 
 ```typescript
 // src/packages/hooks/useDebounce.ts
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
 
 const useDebounce = <T>(value: T, delay: number = 300): T => {
-  const [debouncedValue, setDebouncedValue] = useState<T>(value)
+  const [debouncedValue, setDebouncedValue] = useState<T>(value);
 
   useEffect(() => {
     // Set a timer to update the debounced value after 'delay' ms
     const timer = setTimeout(() => {
-      setDebouncedValue(value)
-    }, delay)
+      setDebouncedValue(value);
+    }, delay);
 
     // If value changes before the timer fires, cancel it and start fresh
     // This is the core of debouncing!
-    return () => clearTimeout(timer)
-  }, [value, delay])
+    return () => clearTimeout(timer);
+  }, [value, delay]);
 
-  return debouncedValue
-}
+  return debouncedValue;
+};
 
-export default useDebounce
+export default useDebounce;
 ```
 
 ```typescript
@@ -1956,73 +1958,73 @@ export default SearchBar
 
 ```typescript
 // src/packages/hooks/useWindowSize.ts
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
 
 type WindowSize = {
-  width: number
-  height: number
-}
+  width: number;
+  height: number;
+};
 
 const useWindowSize = (): WindowSize => {
   // Start with window dimensions (or 0 for SSR)
   const [size, setSize] = useState<WindowSize>({
-    width: typeof window !== 'undefined' ? window.innerWidth : 0,
-    height: typeof window !== 'undefined' ? window.innerHeight : 0,
-  })
+    width: typeof window !== "undefined" ? window.innerWidth : 0,
+    height: typeof window !== "undefined" ? window.innerHeight : 0,
+  });
 
   useEffect(() => {
     const handleResize = () => {
       setSize({
         width: window.innerWidth,
         height: window.innerHeight,
-      })
-    }
+      });
+    };
 
-    window.addEventListener('resize', handleResize)
+    window.addEventListener("resize", handleResize);
 
     // Clean up — remove listener when component unmounts
-    return () => window.removeEventListener('resize', handleResize)
-  }, []) // empty array — set up listener once, remove once
+    return () => window.removeEventListener("resize", handleResize);
+  }, []); // empty array — set up listener once, remove once
 
-  return size
-}
+  return size;
+};
 
-export default useWindowSize
+export default useWindowSize;
 ```
 
 ### Custom Hook 5: `useOnClickOutside`
 
 ```typescript
 // src/packages/hooks/useOnClickOutside.ts
-import { useEffect } from 'react'
-import type { RefObject } from 'react'
+import { useEffect } from "react";
+import type { RefObject } from "react";
 
 // T extends HTMLElement — this works with any DOM element type
 const useOnClickOutside = <T extends HTMLElement>(
   ref: RefObject<T | null>,
-  callback: () => void
+  callback: () => void,
 ) => {
   useEffect(() => {
     const handleClick = (event: MouseEvent | TouchEvent) => {
       // If the click target is INSIDE our ref'd element, do nothing
-      if (!ref.current || ref.current.contains(event.target as Node)) return
+      if (!ref.current || ref.current.contains(event.target as Node)) return;
 
       // Click was OUTSIDE — call the callback
-      callback()
-    }
+      callback();
+    };
 
     // Listen for both mouse and touch events
-    document.addEventListener('mousedown', handleClick)
-    document.addEventListener('touchstart', handleClick)
+    document.addEventListener("mousedown", handleClick);
+    document.addEventListener("touchstart", handleClick);
 
     return () => {
-      document.removeEventListener('mousedown', handleClick)
-      document.removeEventListener('touchstart', handleClick)
-    }
-  }, [ref, callback]) // re-run if ref or callback changes
-}
+      document.removeEventListener("mousedown", handleClick);
+      document.removeEventListener("touchstart", handleClick);
+    };
+  }, [ref, callback]); // re-run if ref or callback changes
+};
 
-export default useOnClickOutside
+export default useOnClickOutside;
 ```
 
 ```typescript
@@ -2072,56 +2074,60 @@ export default Dropdown
 
 ```typescript
 // useState — remember changing data
-const [value, setValue] = useState<Type>(initialValue)
+const [value, setValue] = useState<Type>(initialValue);
 
 // useEffect — run code after render (side effects)
 useEffect(() => {
   // do something
-  return () => { /* cleanup */ }
-}, [dependencies])
+  return () => {
+    /* cleanup */
+  };
+}, [dependencies]);
 
 // useRef — DOM access or persistent value (no re-render)
-const ref = useRef<HTMLDivElement>(null)
+const ref = useRef<HTMLDivElement>(null);
 
 // useContext — read shared data from a Provider
-const value = useContext(MyContext)
+const value = useContext(MyContext);
 
 // useReducer — complex state with actions
-const [state, dispatch] = useReducer(reducer, initialState)
+const [state, dispatch] = useReducer(reducer, initialState);
 
 // useMemo — cache expensive calculations
-const result = useMemo(() => expensiveCalc(a, b), [a, b])
+const result = useMemo(() => expensiveCalc(a, b), [a, b]);
 
 // useCallback — stable function reference
-const fn = useCallback(() => doSomething(a), [a])
+const fn = useCallback(() => doSomething(a), [a]);
 
 // useId — unique ID for accessibility
-const id = useId()
+const id = useId();
 
 // useLayoutEffect — DOM measurements before paint
-useLayoutEffect(() => { /* measure DOM */ }, [deps])
+useLayoutEffect(() => {
+  /* measure DOM */
+}, [deps]);
 
 // useTransition — mark update as non-urgent
-const [isPending, startTransition] = useTransition()
+const [isPending, startTransition] = useTransition();
 
 // useDeferredValue — lagging value for heavy renders
-const deferred = useDeferredValue(value)
+const deferred = useDeferredValue(value);
 
 // useImperativeHandle — expose methods on a child component
-useImperativeHandle(ref, () => ({ focus, clear }))
+useImperativeHandle(ref, () => ({ focus, clear }));
 
 // useActionState (React 19) — form actions with state
-const [state, formAction, isPending] = useActionState(action, initialState)
+const [state, formAction, isPending] = useActionState(action, initialState);
 
 // useOptimistic (React 19) — instant UI feedback
-const [optimistic, addOptimistic] = useOptimistic(state, updater)
+const [optimistic, addOptimistic] = useOptimistic(state, updater);
 
 // use() (React 19) — read Promises or Context (can be conditional)
-const data = use(somePromise)
-const value = use(SomeContext)
+const data = use(somePromise);
+const value = use(SomeContext);
 
 // useFormStatus (React 19) — inside a form, reads submission state
-const { pending } = useFormStatus()
+const { pending } = useFormStatus();
 ```
 
 ---
