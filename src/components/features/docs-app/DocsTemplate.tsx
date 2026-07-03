@@ -1,5 +1,6 @@
 import Markdown from "../../ui/markdown/Markdown";
 import { useDocs } from "../../../packages/hooks/useDocs";
+import Loading from "../../layouts/Loading";
 
 interface Props {
   docsName: string;
@@ -8,7 +9,7 @@ interface Props {
 const DocsTemplate = ({ docsName }: Props) => {
   const { markdown, loading, error } = useDocs(docsName);
 
-  if (loading) return <div>Loading…</div>;
+  if (loading) return <Loading />;
   if (error) return <div className="text-red-500">{error}</div>;
 
   return <Markdown content={markdown} />;
